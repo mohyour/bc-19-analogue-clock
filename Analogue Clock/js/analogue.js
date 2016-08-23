@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', displayTime);
-
     //function to get current time
 function displayTime() {
     var now = new Date();
@@ -8,8 +7,21 @@ function displayTime() {
     var second = now.getSeconds();
 
     var timeString = formatHour(hour) + ":" + addZero(minute) + ":" + addZero(second) + " " + getPeriod(hour);
-document.querySelector("#current-time").innerHTML = timeString;
+    document.querySelector("#current-time").innerHTML = timeString;
+
+     // --- Analog clock ---//
+    var canvas = document.querySelector("#clock");
+    var context = canvas.getContext("2d");
+
+    //make changes to the clock size
+    var clockRadius = 180;
+
+    // Centers the clock in the canvas
+    var clockX = canvas.width / 2;
+    var clockY = canvas.height / 2;
+
 }
+
     // Function wil add extra zero to the time to display 2 digits
 function addZero(num) {
     if (num < 10) {
@@ -18,6 +30,7 @@ function addZero(num) {
     else {
         return String(num);
     }
+
 }
     // formats 24hrs to 12hrs
 function formatHour(hour) {

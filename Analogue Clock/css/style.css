@@ -5,8 +5,17 @@
     width: 200px;
     padding: 10px;
 }
+body {
+    background: url('../images/back.jpg') no-repeat;
+    background-size: cover;
+
+}
+
 
 #clock {
     padding: 10px;
-    border:1px solid #000000;
+    border-radius: 50px;
+    background: url('../images/ClockFace.png');
+    background-repeat: no-repeat;
+    background-size: 300px
 }
