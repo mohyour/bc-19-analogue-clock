@@ -1,5 +1,21 @@
 document.addEventListener('DOMContentLoaded', startTimer);
+  // Get timezone data from api
+  $.get("http://api.timezonedb.com/v2/list-time-zone?key=4E8GH2Z6KVYV&format=json",function(data){
+    zones = data.zones;
+    // Get zone names and offsets from api data
+    var properzones = [];
+    zones.map(function(currentzone){
+        properzones.push([currentzone.zoneName,(currentzone.gmtOffset/3600)]);
+    })
+    // Parse timezone and offsets into html
+    var options = '';
+    properzones.forEach(function(item){
+        options += '<option value='+item[1]+'>' + item[0] + '</option>';
+    })
+    document.getElementById('tzSelect').innerHTML = options
+    });
 
+  //Set time interval
 function startTimer() {
     setInterval(displayTime, 1000);
     displayTime();
