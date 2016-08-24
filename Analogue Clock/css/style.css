@@ -6,7 +6,18 @@
     padding: 10px;
 }
 
+body {
+    background: url(../images/anew.jpg) no-repeat center;
+    background-size: cover;
+    image-rendering: auto;
+}
+
 #clock {
     padding: 10px;
-    border:1px solid #000000;
+    border-radius: 50px;
+    background: url('../images/ClockFace.png') no-repeat;
+    background-position: center;
+    background-size: 400px
+
 }
+
