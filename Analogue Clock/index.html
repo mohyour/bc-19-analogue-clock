@@ -9,17 +9,23 @@
     <script src="js/analogue.js"></script>
 </head>
 <body>
+    <!-- Navigation bar -->
     <div class = "navbar">
         nav bar
     </div>
+    <!-- Audio sound -->
+    <audio src="sound/pop.mp3" id="audio"></audio>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+            <!-- Digital sound -->
                 <div id="current-time" class="btn-success">12:00:00 AM</div>
+                <!-- Clock canvas -->
                 <canvas id="clock" width="400" height="400">
 
                 </canvas>
             </div>
+            <!-- Time zone select options -->
             <div class ="col-md-6">
                 <select class = "form-control" onchange="displayTime()" id="tzSelect">
 
