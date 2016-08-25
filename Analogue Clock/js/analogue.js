@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', startTimer);
         selected = '';
         if(item['zoneName'].toLowerCase() === 'africa/lagos' ){
              selected = 'selected="selected"';
-             console.log(item)
         }
         options += '<option value="'+(item.gmtOffset/3600) + '" ' + selected + '>' + item.zoneName + '</option>';
     })
@@ -41,7 +40,6 @@ function displayTime() {
 
     //make changes to the clock size
     var clockRadius = 180;
-
     // Centers the clock in the canvas
     var clockX = canvas.width / 2;
     var clockY = canvas.height / 2;
