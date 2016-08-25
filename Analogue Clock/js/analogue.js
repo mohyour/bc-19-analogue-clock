@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', startTimer);
   // Get timezone data from api and sorts by the zone names
-  $.get("http://api.timezonedb.com/v2/list-time-zone?key=4E8GH2Z6KVYV&format=json",function(data){
+  $.get("https://api.timezonedb.com/v2/list-time-zone?key=4E8GH2Z6KVYV&format=json",function(data){
     zones = data.zones.sort(function(a, b){
         return a['zoneName'].toLowerCase() > b['zoneName'].toLowerCase();
     });
