@@ -13,7 +13,7 @@ A front-end application built to display current time across all the avaiable ti
 
 ### Usage
 
-* Load the [clock] (https://mohyour.github.io) page.
+* Load the [clock](https://mohyour.github.io) page.
 * Select your time zone.
 * Enjoy the ticking of the clock.
  

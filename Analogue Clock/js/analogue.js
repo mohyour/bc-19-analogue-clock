@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', startTimer);
-  // Get timezone data from api
-  $.get("http://api.timezonedb.com/v2/list-time-zone?key=4E8GH2Z6KVYV&format=json",function(data){
-    zones = data.zones;
-    // Get zone names and offsets from api data
-    var properzones = [];
-    zones.map(function(currentzone){
-        properzones.push([currentzone.zoneName,(currentzone.gmtOffset/3600)]);
-    })
-    // Parse timezone and offsets into html
+  // Get timezone data from api and sorts by the zone names
+  $.get("https://api.timezonedb.com/v2/list-time-zone?key=4E8GH2Z6KVYV&format=json",function(data){
+    zones = data.zones.sort(function(a, b){
+        return a['zoneName'].toLowerCase() > b['zoneName'].toLowerCase();
+    });
+
     var options = '';
-    properzones.forEach(function(item){
-        options += '<option value='+item[1]+'>' + item[0] + '</option>';
+    zones.forEach(function(item){
+        selected = '';
+        if(item['zoneName'].toLowerCase() === 'africa/lagos' ){
+             selected = 'selected="selected"';
+        }
+        options += '<option value="'+(item.gmtOffset/3600) + '" ' + selected + '>' + item.zoneName + '</option>';
     })
     document.getElementById('tzSelect').innerHTML = options
     });
@@ -23,13 +24,13 @@ function startTimer() {
 
     //function to get current time
 function displayTime() {
+    audio.play() //play tick tock sound
     var now = new Date();
-
     var offset_value = document.getElementById('tzSelect').value-1
     var hour = now.getHours() + offset_value;
     var minute = now.getMinutes();
     var second = now.getSeconds();
-
+    // Digital time
     var timeString = formatHour(hour) + ":" + addZero(minute) + ":" + addZero(second) + " " + getPeriod(hour);
     document.querySelector("#current-time").innerHTML = timeString;
 
@@ -39,7 +40,6 @@ function displayTime() {
 
     //make changes to the clock size
     var clockRadius = 180;
-
     // Centers the clock in the canvas
     var clockX = canvas.width / 2;
     var clockY = canvas.height / 2;
@@ -66,7 +66,7 @@ drawArm(second / 60,  1, 0.55, '#FF0000'); // Second
 
 }
 
-    // Function wil add extra zero to the time to display 2 digits
+    // Function will add extra zero to the time to display 2 digits
 function addZero(num) {
     if (num < 10) {
         return "0" + String(num);
@@ -80,7 +80,7 @@ function addZero(num) {
 function formatHour(hour) {
     var new_hour = hour % 12;
     if (new_hour == 0) {
-        hour = 12;
+        new_hour = 12;
     }
     return String(new_hour)
 }

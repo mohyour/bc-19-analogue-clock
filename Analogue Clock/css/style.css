@@ -1,9 +1,9 @@
 #current-time {
-    display: block;
-    font-weight: bold;
+    color: #C0C0C0;
+    font-size: 100px;
     text-align: center;
-    width: 200px;
-    padding: 10px;
+    padding-top: 250px;
+    font-family: 'Fredericka the Great', cursive;
 }
 
 body {
@@ -20,4 +20,6 @@ body {
     background-size: 400px
 
 }
-
+.container {
+    padding-top: 100px;
+}
