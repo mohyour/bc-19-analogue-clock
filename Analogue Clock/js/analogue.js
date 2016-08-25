@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', startTimer);
-  // Get timezone data from api and sorts by yhe zone names
+  // Get timezone data from api and sorts by the zone names
   $.get("http://api.timezonedb.com/v2/list-time-zone?key=4E8GH2Z6KVYV&format=json",function(data){
     zones = data.zones.sort(function(a, b){
         return a['zoneName'].toLowerCase() > b['zoneName'].toLowerCase();
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', startTimer);
         selected = '';
         if(item['zoneName'].toLowerCase() === 'africa/lagos' ){
              selected = 'selected="selected"';
-             console.log(item)
         }
         options += '<option value="'+(item.gmtOffset/3600) + '" ' + selected + '>' + item.zoneName + '</option>';
     })
@@ -25,8 +24,8 @@ function startTimer() {
 
     //function to get current time
 function displayTime() {
+    audio.play() //play tick tock sound
     var now = new Date();
-
     var offset_value = document.getElementById('tzSelect').value-1
     var hour = now.getHours() + offset_value;
     var minute = now.getMinutes();
@@ -41,7 +40,6 @@ function displayTime() {
 
     //make changes to the clock size
     var clockRadius = 180;
-
     // Centers the clock in the canvas
     var clockX = canvas.width / 2;
     var clockY = canvas.height / 2;
@@ -82,7 +80,7 @@ function addZero(num) {
 function formatHour(hour) {
     var new_hour = hour % 12;
     if (new_hour == 0) {
-        hour = 12;
+        new_hour = 12;
     }
     return String(new_hour)
 }
