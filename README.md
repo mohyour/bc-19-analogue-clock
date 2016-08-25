@@ -20,10 +20,9 @@ A front-end application built to display current time across all the avaiable ti
 
 ### Contributions
 
-* Fork the repository.
-* Make a commit.
+* Fork the repository and clone locally.
+* Commit your changes.
 * Push to a new branch.
 * Raise a pull request.
 
-** *Find a bug?* **
-* Open a pull request! *
+*Find a bug?* * Open a pull request! *
