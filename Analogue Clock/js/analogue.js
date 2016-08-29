@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', startTimer);
   //Set time interval
 function startTimer() {
     setInterval(displayTime, 1000);
-    displayTime();
+    // displayTime();
 }
 
     //function to get current time
@@ -87,4 +87,19 @@ function formatHour(hour) {
 // returns AM if hour is less than 12 and PM if not
 function getPeriod(hour) {
     return (hour < 12) ? "AM" : "PM";
+}
+
+function changeBG() {
+    var zone = document.getElementById("tzSelect");
+    var offset = zone.options[zone.selectedIndex].value;
+    console.log (offset)
+    if (offset < 0) {
+        document.body.style.backgroundImage = 'url(images/back.jpg)'
+    }
+    else if (offset > 0){
+        document.body.style.backgroundImage = 'url(images/back2.jpg)'
+    }
+    else {
+        document.body.style.backgroundImage = 'url(images/anew.jpg)'
+    }
 }
